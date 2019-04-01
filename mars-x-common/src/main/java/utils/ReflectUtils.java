@@ -1,7 +1,38 @@
 package utils;
 
+import java.lang.reflect.Field;
+
 /**
  * Created by sj.hu on 2019/4/1.
  */
 public class ReflectUtils {
+
+    public static <T> T get(Object object, Class<T> fieldType) {
+        Field[] fields = object.getClass().getDeclaredFields();
+        Field field = null;
+        for(Field item: fields) {
+            if(item.getType() == fieldType) {
+                field = item;
+                break;
+            }
+        }
+
+        if(field == null) {
+            throw new RuntimeException("Can not find the field for type: " + fieldType);
+        }
+
+        field.setAccessible(true);
+        try{
+            Object value = field.get(object);
+            if(value == null) {
+                return null;
+            } else {
+                return (T) value;
+            }
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException("Can not access the field for type: " + fieldType, e);
+        }
+    }
+
+
 }
