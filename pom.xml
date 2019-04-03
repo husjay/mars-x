@@ -10,11 +10,16 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>mars-x-common</module>
+        <module>mars-x-domain</module>
+        <module>mars-x-dao</module>
+        <module>mars-x-job</module>
+        <module>mars-x-web</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <junit.version>4.12</junit.version>
+        <mybatis.version>3.5.0</mybatis.version>
     </properties>
 
     <dependencies>
@@ -22,6 +27,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
         </dependency>
     </dependencies>
 
