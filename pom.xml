@@ -34,6 +34,15 @@
             <artifactId>mybatis</artifactId>
             <version>${mybatis.version}</version>
         </dependency>
+
+        <!-- Atomikos -->
+        <!-- https://mvnrepository.com/artifact/com.atomikos/transactions-jta -->
+        <dependency>
+            <groupId>com.atomikos</groupId>
+            <artifactId>transactions-jta</artifactId>
+            <version>4.0.6</version>
+        </dependency>
+
     </dependencies>
 
 
