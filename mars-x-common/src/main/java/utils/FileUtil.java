@@ -3,6 +3,27 @@ package utils;
 import java.io.*;
 
 public class FileUtil {
+
+
+    public static String readFile(String filePath) {
+        try {
+            File file = new File(filePath);
+            FileReader fileReader = new FileReader(file);
+            Reader reader = new InputStreamReader(new FileInputStream(file), "utf-8");
+            int ch = 0;
+            StringBuffer sb = new StringBuffer();
+            while ((ch = reader.read()) != -1) {
+                sb.append((char) ch);
+            }
+            fileReader.close();
+            reader.close();
+            return sb.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public static void write(String file, String content) {
         FileWriter fw = null;
         try {
