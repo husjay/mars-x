@@ -17,6 +17,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.galaxy.mars</groupId>
+            <artifactId>mars-x-dao</artifactId>
+            <version>1.0</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>

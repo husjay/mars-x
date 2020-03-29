@@ -28,7 +28,7 @@ public class RunableClass {
 
         MyRunable runable = new MyRunable();
         ExecutorService service = Executors.newFixedThreadPool(1);
-        //Future future = service.submit(runable);
+        //Future future = services.submit(runable);
 
         String result = "";
         Future future1 = service.submit(runable, result);

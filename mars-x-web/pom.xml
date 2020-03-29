@@ -10,7 +10,7 @@
 
     <groupId>com.galaxy.mars</groupId>
     <artifactId>mars-x-web</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${x.version}</version>
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
@@ -20,6 +20,16 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.galaxy.mars</groupId>
+            <artifactId>mars-x-dao</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.galaxy.mars</groupId>
+            <artifactId>mars-x-domain</artifactId>
+            <version>1.0</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
