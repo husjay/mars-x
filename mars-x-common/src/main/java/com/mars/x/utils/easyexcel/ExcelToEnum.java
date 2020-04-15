@@ -12,13 +12,24 @@ import java.util.List;
 
 public class ExcelToEnum {
 
+    private static String source_file = "D:\\Users\\sj.hu\\Desktop\\WorkFlow\\04-02_shark_default_value\\email_shark.xlsx";
+    private static String target_file = "D:\\Users\\sj.hu\\Desktop\\WorkFlow\\04-02_shark_default_value\\SharkDefaultValueConfig.json";
+
     public static void main(String[] args) {
+        //email shark
+        source_file = "D:\\Users\\sj.hu\\Desktop\\WorkFlow\\04-02_shark_default_value\\email_shark.xlsx";
+        target_file = "D:\\Users\\sj.hu\\Desktop\\WorkFlow\\04-02_shark_default_value\\SharkDefaultValueConfig.json";
+
+        //magic link shark
+        //source_file = "D:\\Users\\sj.hu\\Desktop\\WorkFlow\\04-02_shark_default_value\\magiclink\\magiclink_shark_keys.xlsx";
+        //target_file = "D:\\Users\\sj.hu\\Desktop\\WorkFlow\\04-02_shark_default_value\\magiclink\\SharkDefaultValueConfig.json";
+
+
+
         // 有个很重要的点 DataListener 不能被spring管理，要每次读取excel都要new,然后里面用到spring可以构造方法传进去
         // 写法1：
-        String fileName = "D:\\Users\\sj.hu\\Desktop\\shark.xlsx";
-        fileName = "D:\\Users\\sj.hu\\Desktop\\shark_default_value\\magiclink\\magiclink_shark.xlsx";
         // 这里 需要指定读用哪个class去读，然后读取第一个sheet 文件流会自动关闭
-        EasyExcel.read(fileName, Data.class, new DataListener()).sheet().doRead();
+        EasyExcel.read(source_file, Data.class, new DataListener()).sheet().doRead();
 
         /*// 写法2：
         ExcelReader excelReader = EasyExcel.read(fileName, Data.class, new DataListener()).build();
@@ -93,13 +104,7 @@ public class ExcelToEnum {
         }
 
         private void saveDate(OutputFileType fileType) {
-            String file = "D:\\Users\\sj.hu\\Desktop\\shark.txt";
-            if(fileType.equals(OutputFileType.JSON)) {
-                file = "D:\\Users\\sj.hu\\Desktop\\SharkDefaultValueConfig.json";
-                file = "D:\\Users\\sj.hu\\Desktop\\shark_default_value\\magiclink\\SharkDefaultValueConfig.json";
-            } else if(fileType.equals(OutputFileType.TXT)) {
-                file = "D:\\Users\\sj.hu\\Desktop\\SharkDefaultValueConfig.txt";
-            }
+            String file = target_file;
 
             File f = new File(file);
             if (f.exists() && f.isFile()) {
@@ -123,7 +128,7 @@ public class ExcelToEnum {
                 FileUtil.write2(file, "}");
             }
 
-            file = "D:\\Users\\sj.hu\\Desktop\\SharkDefaultValueConfig_emptyKeys.txt";
+            /*file = "D:\\Users\\sj.hu\\Desktop\\SharkDefaultValueConfig_emptyKeys.txt";
             file = "D:\\Users\\sj.hu\\Desktop\\shark_default_value\\magiclink\\SharkDefaultValueConfig_emptyKeys.txt";
             f = new File(file);
             if (f.exists() && f.isFile()) {
@@ -131,7 +136,7 @@ public class ExcelToEnum {
             }
             for (String emptyValueKey : emptyValueKeys) {
                 FileUtil.write2(file, emptyValueKey);
-            }
+            }*/
         }
 
     }
